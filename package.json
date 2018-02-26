@@ -1,7 +1,7 @@
 {
-  "name": "node-js-getting-started",
-  "version": "0.3.0",
-  "description": "A sample Node.js app using Express 4",
+  "name": "ui-coffee-club-api",
+  "version": "0.0.1",
+  "description": "API for the TailLight UI developers coffee ap",
   "engines": {
     "node": "8.9.1"
   },
