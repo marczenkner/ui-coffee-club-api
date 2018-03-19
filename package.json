@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "API for the TailLight UI developers coffee ap",
   "engines": {
-    "node": "8.9.1"
+    "node": "6.10.3"
   },
   "main": "index.js",
   "scripts": {
