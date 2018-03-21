@@ -20,11 +20,6 @@ app.use('/api', CoffeeRoutes);
 
 app.post('/upload', function(req, res){
 
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-    res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PATCH, DELETE, OPTIONS');
-    next();
-
     // create an incoming form object
     var form = new formidable.IncomingForm();
 
