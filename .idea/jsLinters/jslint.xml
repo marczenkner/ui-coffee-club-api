@@ -5,5 +5,6 @@
     <option es6="true" />
     <option maxerr="50" />
     <option node="true" />
+    <option single="true" />
   </component>
 </project>
