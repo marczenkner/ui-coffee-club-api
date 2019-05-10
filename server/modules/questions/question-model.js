@@ -1,6 +1,6 @@
 import mongoose, { Schema } from 'mongoose';
 
-const CoffeeSchema = new Schema({
+const QuestionSchema = new Schema({
   title: {
     type: String,
     required: true,
@@ -27,4 +27,4 @@ const CoffeeSchema = new Schema({
   },
 }, { timestamps: true });
 
-export default mongoose.model('Coffee', CoffeeSchema);
+export default mongoose.model('Question', QuestionSchema);

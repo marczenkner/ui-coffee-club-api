@@ -5,7 +5,7 @@ const routes = new Router();
 
 routes.post('/create-coffee', CoffeeController.createCoffee);
 
-routes.get('/get-coffees', CoffeeController.getCoffees);
+routes.get('/get-questions', CoffeeController.getCoffees);
 
 export default routes;
 
