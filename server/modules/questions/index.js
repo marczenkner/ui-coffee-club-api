@@ -1,3 +1,3 @@
-import CoffeeRoutes from './routes';
+import questionRoutes from './routes';
 
-export { CoffeeRoutes };
+export { questionRoutes };

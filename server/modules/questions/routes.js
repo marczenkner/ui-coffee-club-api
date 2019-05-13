@@ -1,11 +1,15 @@
 import { Router } from 'express';
-import * as CoffeeController from './controller';
+import { createQuestion, getQuestions, editQuestion, deleteQuestion } from './controller';
 
-const routes = new Router();
+const questionRoutes = new Router();
 
-routes.post('/create-coffee', CoffeeController.createCoffee);
+questionRoutes.get('/get-questions', getQuestions);
 
-routes.get('/get-questions', CoffeeController.getCoffees);
+questionRoutes.post('/create-question', createQuestion);
 
-export default routes;
+questionRoutes.post('/edit-question', editQuestion);
+
+questionRoutes.delete('/delete-question', deleteQuestion);
+
+export default questionRoutes;
 

@@ -1,7 +1,7 @@
 import express from 'express';
 import dbConfig from './config/dbConfig';
 import middleWareConfig from './config/middleware';
-import { CoffeeRoutes } from './modules/questions';
+import { questionRoutes } from './modules/questions';
 // Imports for image-uploader
 // import path from 'path';
 // import formidable from 'formidable';
@@ -15,7 +15,7 @@ dbConfig();
 
 middleWareConfig(app);
 
-app.use('/api', CoffeeRoutes);
+app.use('/api', questionRoutes);
 
 // app.post('/upload', (req, res) => {
 //   // create an incoming form object
