@@ -32,7 +32,7 @@ const QuestionSchema = new Schema({
   },
   questionIsDependantOn: {
     type: String,
-    required: () => this.questionIsDependant.type === true,
+    // required: () => this.questionIsDependant.type === true,
   },
   questionCustomBackground: {
     type: String,

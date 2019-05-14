@@ -15,7 +15,7 @@ export const editQuestion = async (req, res) => {
 export const createQuestion = async (req, res) => {
     const { questionText, questionOrder, questionWeight, questionSection, questionHasInput, questionInputType, questionInputText, questionIsDependant, questionIsDependantOn, questionCustomBackground, questionStyles, questionIsVisible } = req.body;
 
-    console.log(req.body);
+    console.log();
 
     if (!questionText) {
         return res.status(400).json({ error: true, message: 'Question Text must be provided!' });
