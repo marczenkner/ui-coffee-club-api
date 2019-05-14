@@ -13,7 +13,7 @@ export const editQuestion = async (req, res) => {
 };
 
 export const createQuestion = async (req, res) => {
-    const { questionText, questionOrder, questionWeight, questionHasInput, questionInputType, questionInputText, questionIsDependant, questionIsDependantOn, questionCustomBackground, questionStyles, questionIsVisible } = req.body;
+    const { questionText, questionOrder, questionWeight, questionSection, questionHasInput, questionInputType, questionInputText, questionIsDependant, questionIsDependantOn, questionCustomBackground, questionStyles, questionIsVisible } = req.body;
 
     if (!questionText) {
         return res.status(400).json({ error: true, message: 'Question Text must be provided!' });
@@ -21,6 +21,10 @@ export const createQuestion = async (req, res) => {
 
     if (!questionWeight) {
         return res.status(400).json({ error: true, message: 'Question Weight must be provided!' });
+    }
+
+    if (!questionSection) {
+        return res.status(400).json({ error: true, message: 'Question Section must be provided!' });
     }
 
     if (!questionInputType) {
@@ -31,7 +35,7 @@ export const createQuestion = async (req, res) => {
         return res.status(400).json({ error: true, message: 'Question IsVisible must be provided!' });
     }
 
-    const newQuestion = new Question({ questionText, questionOrder, questionWeight, questionHasInput, questionInputType, questionInputText, questionIsDependant, questionIsDependantOn, questionCustomBackground, questionStyles, questionIsVisible });
+    const newQuestion = new Question({ questionText, questionOrder, questionWeight, questionSection, questionHasInput, questionInputType, questionInputText, questionIsDependant, questionIsDependantOn, questionCustomBackground, questionStyles, questionIsVisible });
 
   try {
     return res.status(201).json({ await newQuestion.save());

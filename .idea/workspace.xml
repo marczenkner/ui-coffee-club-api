@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="654cf94f-558d-4579-a9a9-f991938156e7" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/config/dbConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/dbConfig.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/modules/questions/controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/modules/questions/controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/modules/questions/question-model.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/modules/questions/question-model.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,25 +17,6 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-            <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/server/modules/questions/question-model.js">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="525">
-                    <caret line="35" column="16" selection-start-line="35" selection-start-column="2" selection-end-line="35" selection-end-column="16" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="FavoritesManager">
     <favorites_list name="coffee-club-api" />
   </component>
@@ -45,8 +25,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/modules/questions/controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="216" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="216" />
+            <state relative-caret-position="360">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
             </state>
           </provider>
         </entry>
@@ -128,12 +108,12 @@
         <option value="$PROJECT_DIR$/server/modules/upload-images/routes.js" />
         <option value="$PROJECT_DIR$/server/modules/coffees/coffee-model.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/server/modules/questions/question-model.js" />
         <option value="$PROJECT_DIR$/.eslintrc" />
         <option value="$PROJECT_DIR$/server/modules/questions/routes.js" />
         <option value="$PROJECT_DIR$/server/modules/questions/index.js" />
         <option value="$PROJECT_DIR$/server/index.js" />
         <option value="$PROJECT_DIR$/server/config/dbConfig.js" />
+        <option value="$PROJECT_DIR$/server/modules/questions/question-model.js" />
         <option value="$PROJECT_DIR$/server/modules/questions/controller.js" />
       </list>
     </option>
@@ -302,15 +282,15 @@
       <workItem from="1521633541617" duration="3041000" />
       <workItem from="1557507776906" duration="3087000" />
       <workItem from="1557760357805" duration="3131000" />
-      <workItem from="1557845699014" duration="676000" />
+      <workItem from="1557845699014" duration="914000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24077000" />
+    <option name="totallyTimeSpent" value="24315000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="57" y="23" width="2503" height="1417" extended-state="6" />
+    <frame x="56" y="23" width="2503" height="1417" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4833006" visible="true" weight="0.24939565" />
@@ -436,13 +416,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/modules/questions/question-model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="16" selection-start-line="35" selection-start-column="2" selection-end-line="35" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/modules/questions/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -477,10 +450,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/server/modules/questions/question-model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="4" lean-forward="true" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/server/modules/questions/controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="216" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="216" />
+        <state relative-caret-position="360">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
         </state>
       </provider>
     </entry>

@@ -13,6 +13,10 @@ const QuestionSchema = new Schema({
     type: Number,
     required: true,
   },
+  questionSection: {
+    type: Number,
+    required: true,
+  },
   questionHasInput: {
     type: Boolean,
   },
