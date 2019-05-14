@@ -38,7 +38,7 @@ export const createQuestion = async (req, res) => {
     const newQuestion = new Question({ questionText, questionOrder, questionWeight, questionSection, questionHasInput, questionInputType, questionInputText, questionIsDependant, questionIsDependantOn, questionCustomBackground, questionStyles, questionIsVisible });
 
   try {
-    return res.status(201).json({ await newQuestion.save());
+    return res.status(201).json( await newQuestion.save());
   } catch (e) {
     return res.status(e.status).json({ error: true, message: 'Error creating new Question.' });
   }
