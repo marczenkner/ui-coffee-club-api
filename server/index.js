@@ -2,6 +2,7 @@ import express from 'express';
 import dbConfig from './config/dbConfig';
 import middleWareConfig from './config/middleware';
 import { questionRoutes } from './modules/questions';
+import cors from 'cors';
 // Imports for image-uploader
 // import path from 'path';
 // import formidable from 'formidable';
@@ -15,6 +16,7 @@ dbConfig();
 
 middleWareConfig(app);
 
+app.use(cors());
 app.use('/api', questionRoutes);
 
 // app.post('/upload', (req, res) => {
