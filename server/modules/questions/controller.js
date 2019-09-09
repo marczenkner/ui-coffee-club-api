@@ -13,7 +13,18 @@ export const editQuestion = async (req, res) => {
 };
 
 export const createQuestion = async (req, res) => {
-    const { questionText, questionOrder, questionWeight, questionSection, questionHasInput, questionInputType, questionInputText, questionIsDependant, questionIsDependantOn, questionCustomBackground, questionStyles, questionIsVisible } = req.body;
+    const { questionText,
+            questionOrder,
+            questionWeight,
+            questionSection,
+            questionInputType,
+            questionInputText,
+            questionIsDependantOn,
+            questionDependents,
+            questionIsVisible,
+            questionInputCaptions,
+            questionInputValues,
+            questionInputStyles } = req.body;
 
     console.log();
 
@@ -37,7 +48,21 @@ export const createQuestion = async (req, res) => {
         return res.status(400).json({ error: true, message: 'Question IsVisible must be provided!' });
     }
 
-    const newQuestion = new Question({ questionText, questionOrder, questionWeight, questionSection, questionHasInput, questionInputType, questionInputText, questionIsDependant, questionIsDependantOn, questionCustomBackground, questionStyles, questionIsVisible });
+    const newQuestion = new Question({
+            questionText,
+            questionOrder,
+            questionWeight,
+            questionSection,
+            questionInputType,
+            questionInputText,
+            questionIsDependantOn,
+            questionDependents,
+            questionIsVisible,
+            questionInputCaptions,
+            questionInputValues,
+            questionInputStyles });
+
+    console.log(newQuestion);
 
   try {
     return res.status(201).json( await newQuestion.save());

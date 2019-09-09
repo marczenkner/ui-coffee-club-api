@@ -17,33 +17,35 @@ const QuestionSchema = new Schema({
     type: Number,
     required: true,
   },
-  questionHasInput: {
-    type: Boolean,
-  },
   questionInputType: {
-    type: String,
+    type: Number,
     required: true,
   },
   questionInputText: {
-    type: String,
-  },
-  questionIsDependant: {
-    type: Boolean,
+    type: Number,
+    required: true,
   },
   questionIsDependantOn: {
     type: String,
     // required: () => this.questionIsDependant.type === true,
   },
-  questionCustomBackground: {
+  questionDependents: {
     type: String,
-  },
-  questionStyles: {
-    type: {},
+    // required: () => this.questionIsDependant.type === true,
   },
   questionIsVisible: {
     type: Boolean,
-    required: true,
   },
+  questionInputCaptions: {
+    type: {},
+  },
+  questionInputValues: {
+    type: {},
+  },
+  questionInputStyles: {
+    type: {},
+  },
+
 },{ timestamps: true });
 
 export default mongoose.model('Question', QuestionSchema);
