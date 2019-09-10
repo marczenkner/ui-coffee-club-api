@@ -20,32 +20,70 @@ export const createQuestion = async (req, res) => {
             questionInputType,
             questionInputText,
             questionIsDependantOn,
-            questionDependents,
+            questionDependants,
             questionIsVisible,
             questionInputCaptions,
             questionInputValues,
             questionInputStyles } = req.body;
 
-    console.log();
-
     if (!questionText) {
-        return res.status(400).json({ error: true, message: 'Question Text must be provided!' });
+        return res.status(400).json({ error: true, message: 'questionText must be provided!' });
+    } else if (questionText.length < 5) {
+        return res.status(400).json({ error: true, message: 'questionText must be 5 characters long' });
+    } else if (typeof questionText !== 'string') {
+        return res.status(400).json({ error: true, message: 'questionText must be a string' });
+    }
+
+    if (typeof questionOrder !== 'number') {
+        return res.status(400).json({ error: true, message: 'questionOrder must be a number' });
     }
 
     if (!questionWeight) {
-        return res.status(400).json({ error: true, message: 'Question Weight must be provided!' });
+        return res.status(400).json({ error: true, message: 'questionWeight must be provided!' });
+    } else if (typeof questionWeight !== 'number') {
+        return res.status(400).json({ error: true, message: 'questionWeight must be a number' });
     }
 
     if (!questionSection) {
-        return res.status(400).json({ error: true, message: 'Question Section must be provided!' });
+        return res.status(400).json({ error: true, message: 'questionSection must be provided!' });
+    } else if (typeof questionSection !== 'number') {
+        return res.status(400).json({ error: true, message: 'questionSection must be a number' });
     }
 
     if (!questionInputType) {
-        return res.status(400).json({ error: true, message: 'Question Input Type must be provided!' });
+        return res.status(400).json({ error: true, message: 'questionInputType must be provided!' });
+    } else if (typeof questionInputType !== 'string') {
+        return res.status(400).json({ error: true, message: 'questionInputType must be a string' });
     }
 
-    if (!questionIsVisible) {
-        return res.status(400).json({ error: true, message: 'Question IsVisible must be provided!' });
+    if (!questionInputText) {
+        return res.status(400).json({ error: true, message: 'questionInputText must be provided!' });
+    } else if (typeof questionInputText !== 'string') {
+        return res.status(400).json({ error: true, message: 'questionInputText must be a string' });
+    }
+
+    if (typeof questionIsDependantOn !== 'number') {
+        return res.status(400).json({ error: true, message: 'questionIsDependantOn must be a number' });
+    }
+
+    if (questionDependants === 'object') {
+        return res.status(400).json({ error: true, message: 'questionDependants must be an array' });
+    }
+
+    if (typeof questionIsVisible !== 'string') {
+        return res.status(400).json({ error: true, message: 'questionIsVisible must be a string' });
+    }
+
+    if (typeof questionInputCaptions !== 'object') {
+        return res.status(400).json({ error: true, message: 'questionInputCaptions must be an array' });
+    }
+
+    if (typeof questionInputValues !== 'object') {
+        return res.status(400).json({ error: true, message: 'questionInputValues must be an array' });
+    }
+
+    if (typeof questionInputStyles !== 'object') {
+        return res.status(400).json({ error: true, message: 'questionInputStyles must be an object' });
     }
 
     const newQuestion = new Question({
@@ -56,13 +94,12 @@ export const createQuestion = async (req, res) => {
             questionInputType,
             questionInputText,
             questionIsDependantOn,
-            questionDependents,
+            questionDependants,
             questionIsVisible,
             questionInputCaptions,
             questionInputValues,
             questionInputStyles });
 
-    console.log(newQuestion);
 
   try {
     return res.status(201).json( await newQuestion.save());
@@ -71,6 +108,13 @@ export const createQuestion = async (req, res) => {
   }
 };
 
-export const deleteQuestion = async (req, res) => {
-    console.log('deleteQuestion called with ', req, res);
+export const deleteQuestion = (req, res) => {
+    console.log('deleteQuestion called with ', req.id);
+    const id = req.body.id;
+    Question.findOneAndDelete({_id: id}).then((removedQuestion) => {
+        res.send(removedQuestion);
+    },
+    (e) => {
+        res.send('Error deleting message', e);
+    });
 };

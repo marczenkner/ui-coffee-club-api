@@ -18,29 +18,29 @@ const QuestionSchema = new Schema({
     required: true,
   },
   questionInputType: {
-    type: Number,
+    type: String,
     required: true,
   },
   questionInputText: {
-    type: Number,
+    type: String,
     required: true,
   },
   questionIsDependantOn: {
-    type: String,
+    type: Number,
     // required: () => this.questionIsDependant.type === true,
   },
-  questionDependents: {
-    type: String,
+  questionDependants: {
+    type: Array,
     // required: () => this.questionIsDependant.type === true,
   },
   questionIsVisible: {
-    type: Boolean,
+    type: String,
   },
   questionInputCaptions: {
-    type: {},
+    type: Array,
   },
   questionInputValues: {
-    type: {},
+    type: Array,
   },
   questionInputStyles: {
     type: {},
