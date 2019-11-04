@@ -109,7 +109,6 @@ export const createQuestion = async (req, res) => {
 };
 
 export const deleteQuestion = (req, res) => {
-    console.log('deleteQuestion called with ', req.id);
     const id = req.body.id;
     Question.findOneAndDelete({_id: id}).then((removedQuestion) => {
         res.send(removedQuestion);
