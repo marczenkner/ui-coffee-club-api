@@ -7,7 +7,7 @@ questionRoutes.get('/get-questions', getQuestions);
 
 questionRoutes.post('/create-question', createQuestion);
 
-questionRoutes.post('/edit-question', editQuestion);
+questionRoutes.patch('/edit-question', editQuestion);
 
 questionRoutes.delete('/delete-question', deleteQuestion);
 

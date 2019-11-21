@@ -8,8 +8,95 @@ export const getQuestions = async (req, res) => {
   }
 };
 
-export const editQuestion = async (req, res) => {
-    console.log('editQuestion called with ', req, res);
+export const editQuestion = (req, res) => {
+    const {
+        questionId,
+        questionText,
+        questionOrder,
+        questionWeight,
+        questionSection,
+        questionInputType,
+        questionInputText,
+        questionIsDependantOn,
+        questionDependants,
+        questionIsVisible,
+        questionInputCaptions,
+        questionInputValues,
+        questionInputStyles } = req.body;
+
+    if (!questionId) {
+        return res.status(400).json({ error: true, message: '_id must be provided!' });
+    }
+
+    if (!questionText) {
+        return res.status(400).json({ error: true, message: 'questionText must be provided!' });
+    } else if (questionText.length < 5) {
+        return res.status(400).json({ error: true, message: 'questionText must be 5 characters long' });
+    } else if (typeof questionText !== 'string') {
+        return res.status(400).json({ error: true, message: 'questionText must be a string' });
+    }
+
+    if (typeof questionOrder !== 'number') {
+        return res.status(400).json({ error: true, message: 'questionOrder must be a number' });
+    }
+
+    if (!questionWeight) {
+        return res.status(400).json({ error: true, message: 'questionWeight must be provided!' });
+    } else if (typeof questionWeight !== 'number') {
+        return res.status(400).json({ error: true, message: 'questionWeight must be a number' });
+    }
+
+    if (!questionSection) {
+        return res.status(400).json({ error: true, message: 'questionSection must be provided!' });
+    } else if (typeof questionSection !== 'number') {
+        return res.status(400).json({ error: true, message: 'questionSection must be a number' });
+    }
+
+    if (!questionInputType) {
+        return res.status(400).json({ error: true, message: 'questionInputType must be provided!' });
+    } else if (typeof questionInputType !== 'string') {
+        return res.status(400).json({ error: true, message: 'questionInputType must be a string' });
+    }
+
+    if (!questionInputText) {
+        return res.status(400).json({ error: true, message: 'questionInputText must be provided!' });
+    } else if (typeof questionInputText !== 'string') {
+        return res.status(400).json({ error: true, message: 'questionInputText must be a string' });
+    }
+
+    if (typeof questionInputCaptions !== 'object') {
+        return res.status(400).json({ error: true, message: 'questionInputCaptions must be an array' });
+    }
+
+    if (typeof questionInputValues !== 'object') {
+        return res.status(400).json({ error: true, message: 'questionInputValues must be an array' });
+    }
+
+    if (typeof questionInputStyles !== 'object') {
+        return res.status(400).json({ error: true, message: 'questionInputStyles must be an object' });
+    }
+
+    Question.findOneAndUpdate({_id: questionId}, {
+        $set: {
+            questionText: questionText,
+            questionOrder: questionOrder,
+            questionWeight: questionWeight,
+            questionSection: questionSection,
+            questionInputType: questionInputType,
+            questionInputText: questionInputText,
+            questionIsDependantOn: questionIsDependantOn,
+            questionDependants: questionDependants,
+            questionIsVisible: questionIsVisible,
+            questionInputCaptions: questionInputCaptions,
+            questionInputValues: questionInputValues,
+            questionInputStyles: questionInputStyles,
+        }
+    }).then((res) => {
+        return res;
+    },
+    (error) => {
+        return error;
+    });
 };
 
 export const createQuestion = async (req, res) => {
@@ -61,18 +148,18 @@ export const createQuestion = async (req, res) => {
     } else if (typeof questionInputText !== 'string') {
         return res.status(400).json({ error: true, message: 'questionInputText must be a string' });
     }
-
-    if (typeof questionIsDependantOn !== 'number') {
-        return res.status(400).json({ error: true, message: 'questionIsDependantOn must be a number' });
-    }
-
-    if (questionDependants === 'object') {
-        return res.status(400).json({ error: true, message: 'questionDependants must be an array' });
-    }
-
-    if (typeof questionIsVisible !== 'string') {
-        return res.status(400).json({ error: true, message: 'questionIsVisible must be a string' });
-    }
+    //
+    // if (typeof questionIsDependantOn !== 'number') {
+    //     return res.status(400).json({ error: true, message: 'questionIsDependantOn must be a number' });
+    // }
+    //
+    // if (questionDependants === 'object') {
+    //     return res.status(400).json({ error: true, message: 'questionDependants must be an array' });
+    // }
+    //
+    // if (typeof questionIsVisible !== 'string') {
+    //     return res.status(400).json({ error: true, message: 'questionIsVisible must be a string' });
+    // }
 
     if (typeof questionInputCaptions !== 'object') {
         return res.status(400).json({ error: true, message: 'questionInputCaptions must be an array' });
