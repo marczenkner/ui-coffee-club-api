@@ -48,8 +48,6 @@ export const editQuestion = (req, res) => {
 
     if (!questionSection) {
         return res.status(400).json({ error: true, message: 'questionSection must be provided!' });
-    } else if (typeof questionSection !== 'number') {
-        return res.status(400).json({ error: true, message: 'questionSection must be a number' });
     }
 
     if (!questionInputType) {
@@ -113,6 +111,8 @@ export const createQuestion = async (req, res) => {
             questionInputValues,
             questionInputStyles } = req.body;
 
+    console.log(req.body);
+
     if (!questionText) {
         return res.status(400).json({ error: true, message: 'questionText must be provided!' });
     } else if (questionText.length < 5) {
@@ -133,8 +133,6 @@ export const createQuestion = async (req, res) => {
 
     if (!questionSection) {
         return res.status(400).json({ error: true, message: 'questionSection must be provided!' });
-    } else if (typeof questionSection !== 'number') {
-        return res.status(400).json({ error: true, message: 'questionSection must be a number' });
     }
 
     if (!questionInputType) {
