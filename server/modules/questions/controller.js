@@ -8,7 +8,7 @@ export const getQuestions = async (req, res) => {
   }
 };
 
-export const editQuestion = (req, res) => {
+export const editQuestion = async (req, res) => {
     const {
         questionId,
         questionText,
@@ -74,8 +74,8 @@ export const editQuestion = (req, res) => {
         return res.status(400).json({ error: true, message: 'questionInputStyles must be an object' });
     }
 
-    Question.findOneAndUpdate({_id: questionId}, {
-        $set: {
+    try {
+        const result = await Question.findByIdAndUpdate(questionId, {
             questionText: questionText,
             questionOrder: questionOrder,
             questionWeight: questionWeight,
@@ -88,13 +88,11 @@ export const editQuestion = (req, res) => {
             questionInputCaptions: questionInputCaptions,
             questionInputValues: questionInputValues,
             questionInputStyles: questionInputStyles,
-        }
-    }).then((res) => {
-        return res;
-    },
-    (error) => {
-        return error;
-    });
+        }, {new: true});
+        res.send(result);
+    } catch (error) {
+        console.log(error);
+    }
 };
 
 export const createQuestion = async (req, res) => {
@@ -146,18 +144,6 @@ export const createQuestion = async (req, res) => {
     } else if (typeof questionInputText !== 'string') {
         return res.status(400).json({ error: true, message: 'questionInputText must be a string' });
     }
-    //
-    // if (typeof questionIsDependantOn !== 'number') {
-    //     return res.status(400).json({ error: true, message: 'questionIsDependantOn must be a number' });
-    // }
-    //
-    // if (questionDependants === 'object') {
-    //     return res.status(400).json({ error: true, message: 'questionDependants must be an array' });
-    // }
-    //
-    // if (typeof questionIsVisible !== 'string') {
-    //     return res.status(400).json({ error: true, message: 'questionIsVisible must be a string' });
-    // }
 
     if (typeof questionInputCaptions !== 'object') {
         return res.status(400).json({ error: true, message: 'questionInputCaptions must be an array' });
@@ -184,8 +170,6 @@ export const createQuestion = async (req, res) => {
             questionInputCaptions,
             questionInputValues,
             questionInputStyles });
-
-
   try {
     return res.status(201).json( await newQuestion.save());
   } catch (e) {
