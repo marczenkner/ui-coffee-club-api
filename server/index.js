@@ -1,7 +1,7 @@
 import express from 'express';
 import dbConfig from './config/dbConfig';
 import middleWareConfig from './config/middleware';
-import { questionRoutes } from './modules/questions';
+import { routes } from './modules/index';
 import cors from 'cors';
 // Imports for image-uploader
 // import path from 'path';
@@ -17,7 +17,7 @@ dbConfig();
 middleWareConfig(app);
 
 app.use(cors());
-app.use('/api', questionRoutes);
+app.use('/api', routes);
 
 // app.post('/upload', (req, res) => {
 //   // create an incoming form object
