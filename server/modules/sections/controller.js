@@ -40,6 +40,8 @@ export const createSection = async (req, res) => {
         sectionOrder,
         sectionStyles } = req.body;
 
+    console.log(req.body);
+
     const sectionExists = await Section.findOne({sectionId: sectionId});
 
     if (sectionExists) { res.send('A Section with this ID already exists. Please use a different ID'); return }
@@ -51,7 +53,8 @@ export const createSection = async (req, res) => {
         sectionOrder,
         sectionStyles });
     try {
-        res.send(newSection.save());
+        const result = await newSection.save();
+        res.send(result);
     } catch (e) {
         return res.status(e.status).json({ error: true, message: 'Error creating new Section.' });
     }
