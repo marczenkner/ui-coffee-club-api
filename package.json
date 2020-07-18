@@ -20,7 +20,7 @@
     "eslint-config-equimper": "^2.2.2",
     "express": "^4.15.2",
     "formidable": "1.2.1",
-    "mongoose": "^5.5.7",
+    "mongoose": "^5.7.5",
     "morgan": "^1.9.1",
     "request": "^2.88.0",
     "tape": "^4.7.0"
